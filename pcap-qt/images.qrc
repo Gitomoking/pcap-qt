@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/database.png</file>
+        <file>images/graph.png</file>
+        <file>images/question.png</file>
+        <file>images/setting.png</file>
+        <file>images/start.png</file>
+        <file>images/stop.png</file>
+        <file>images/BarBar.png</file>
+        <file>images/unko.png</file>
+        <file>images/network.png</file>
+        <file>images/circle.png</file>
+        <file>images/search.png</file>
+        <file>images/autoscroll.png</file>
+        <file>images/up.png</file>
+        <file>images/down.png</file>
+        <file>images/pcap-qt_Logo.png</file>
+        <file>images/fasticon-green-ville-network.ico</file>
+    </qresource>
+</RCC>
