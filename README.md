@@ -12,6 +12,64 @@ Pcap-qt の主な機能は以下の通りです：
 
 パケットキャプチャを行うためのライブラリには　C 言語の Libpcap を用いており，Libpcap を使って取得したパケットをウィンドウ上で表示する機能は Qt (C++) を使って実装しました．
 
+# 機能紹介（スクリーンショット）
+## パケットキャプチャ
+pcap-qt で解析可能なプロトコルは以下の通りです：
+
+- ARP（Address Resolution Protocol）
+- IPv4（Internet Protocol v4）
+- TCP（Transmission Control Protocol）
+- UDP（User Datagram Protocol）
+- ICMP（Internet Control Message Protocol）
+- DNS（Domain Name System）
+
+また，以下のプロトコルは解析はできませんが識別可能なプロトコルです：
+
+- FTP（File Transfer Protocol）
+- Telnet
+- SSH（Secure Shell）
+- HTTP（HyperText Transfer Protocol）
+- HTTPS
+- DHCP（Dynamic Host Configuration Protocol）
+- NTP（Network Time Protocol）
+
+以下，pcap-qt のスクリーンショットです．
+
+メインフレーム（パケット表示）
+
+<img src="https://github.com/Gitomoking/pcap-qt/blob/images/packet-list.png" alt="packet-list">
+
+メインフレーム（パケット詳細）
+
+<img src="https://github.com/Gitomoking/pcap-qt/blob/images/packet-detail.png" alt="packet-detail">
+
+<img src="https://github.com/Gitomoking/pcap-qt/blob/images/パケットデータ.png" alt="packet-raw">
+
+パケットの可視化
+
+<img src="https://github.com/Gitomoking/pcap-qt/blob/images/可視化.png" alt="packet-visualization">
+
+パケットの検索
+
+<img src="https://github.com/Gitomoking/pcap-qt/blob/images/packet-search.png" alt="packet-search">
+
+パケットのフィルタリング
+
+<img src="https://github.com/Gitomoking/pcap-qt/blob/images/フィルタ式確認画面.png" alt="filtering-1">
+<img src="https://github.com/Gitomoking/pcap-qt/blob/images/フィルタ設定画面プロトコルタブ.png" alt="filtering-2">
+<img src="https://github.com/Gitomoking/pcap-qt/blob/images/フィルタ設定画面ポート番号タブ.png" alt="filtering-3">
+<img src="https://github.com/Gitomoking/pcap-qt/blob/images/フィルタ設定画面ホストタブ.png" alt="filtering-4">
+
+ネットワーク統計
+
+<img src="https://github.com/Gitomoking/pcap-qt/blob/images/packet-traffic.png" alt="traffic">
+<img src="https://github.com/Gitomoking/pcap-qt/blob/images/node-statistics.png" alt="node">
+<img src="https://github.com/Gitomoking/pcap-qt/blob/images/プロトコル統計画面.png" alt="protocol">
+
+ログ
+
+<img src="https://github.com/Gitomoking/pcap-qt/blob/images/log.png" alt="log">
+
 # 各ディレクトについて
 本リポジトリは下記ディレクトリからなります：
 
