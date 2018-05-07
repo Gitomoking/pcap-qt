@@ -4,6 +4,7 @@ Pcap-qt は，Linux 上で動作する，ネットワークパケットをリア
 <img src="https://github.com/Gitomoking/pcap-qt/blob/images/IMG_9628.png" alt="pcap-qt logo" title="pcap-qt">
 
 Pcap-qt の主な機能は以下の通りです：
+
 - ネットワーク機器からのパケットキャプチャ
 - リアルタイムでのパケットの可視化
 - ネットワークの統計データ（トラフィック量，プロトコルの割合，通信量の多い組み合わせ）の表示
@@ -20,20 +21,20 @@ Pcap-qt の主な機能は以下の通りです：
 
 本ソフトウェアを利用する際，pcap ディレクトリと pcap-qt ディレクトリは，同じ親ディレクトリを持つようにしてください．例えば，次のようなディレクトリ構成になります．
 
-親ディレクトリ 
- |---pcap-qt---pcap-qt mainwindow.cpp etc. 
- |---pcap---pcap-device pcap-capture device_main.cpp pcap_main.cpp etc. 
+親ディレクトリ<br />
+ |---pcap-qt---pcap-qt mainwindow.cpp etc.<br />
+ |---pcap---pcap-device pcap-capture device_main.cpp pcap_main.cpp etc. <br />
  |---pseudo-pcap---pseudo_capture pseudo_main.cpp etc. 
 
 # インストール
 ## 準備
 アプリケーションをインストールするためには，先に以下のライブラリをインストールしてください．
 
-a) libpcap および libpcap-devel　（v1.5.3で動作確認済み）． 
-b) Qt : QtCharts, QtSQL含む　（v5.7/5.8で動作確認済み）． 
-c) MariaDB-10.1.3 以降 
+- libpcap および libpcap-devel　（v1.5.3で動作確認済み）． 
+- Qt : QtCharts, QtSQL含む　（v5.7/5.8で動作確認済み）． 
+- MariaDB-10.1.3 以降 
 
-ただし，c)は，ログ機能を利用する場合（ネットワーク統計を保存する場合）のみです．
+ただし，MariaDB は，ログ機能を利用する場合（ネットワーク統計を保存する場合）のみ必要となります．
 
 ## データベースのセットアップ（ログ機能を利用する場合）
 データベースの暗号化については，付録「データベースのセットアップ.pdf」を参照してください．
@@ -157,7 +158,8 @@ $ sudo /ディレクトリ/pcap-qt/pcap-qt
 ```
 
 ## パケットキャプチャのデモンストレーションを行いたい場合（pseudo-pcap を利用する）
-pseudo_capture は，疑似的なパケットを生成し，標準出力に出力するプログラムです． pseudo_capture を利用することによって，ネットワークに接続していない場合でも，pcap-qt を動作させることができます． 
+pseudo_capture は，疑似的なパケットを生成し，標準出力に出力するプログラムです． pseudo_capture を利用することによって，ネットワークに接続していない場合でも，pcap-qt を動作させることができます．
+
 まず，ディレクトリ pseudo-pcap 内をビルドしてください．
 
 ```
