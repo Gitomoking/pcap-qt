@@ -33,37 +33,44 @@ pcap-qt で解析可能なプロトコルは以下の通りです：
 - DHCP（Dynamic Host Configuration Protocol）
 - NTP（Network Time Protocol）
 
-以下，pcap-qt のスクリーンショットです．
+メインフレームでは，パケット一覧，パケットデータの詳細，パケットの生データなどを表示します．
 
-メインフレーム（パケット表示）
+パケットキャプチャの開始・停止や各種動作を行うためのボタンもこのウィンドウにあります．
 
 <img src="https://github.com/Gitomoking/pcap-qt/blob/images/packet-list.png" alt="packet-list">
-
-メインフレーム（パケット詳細）
 
 <img src="https://github.com/Gitomoking/pcap-qt/blob/images/packet-detail.png" alt="packet-detail">
 
 <img src="https://github.com/Gitomoking/pcap-qt/blob/images/%E3%83%8F%E3%82%9A%E3%82%B1%E3%83%83%E3%83%88%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF.png" alt="packet-raw">
 
-パケットの可視化
+## パケットの可視化
+パケットの可視化ウィンドウを開くと，取得したパケットをリアルタイムで見ることができます．
+
+アニメーションを実装しているので，どのノードからどのノードへ何のパケットが送られたかをわかりやすく表現しています．
 
 <img src="https://github.com/Gitomoking/pcap-qt/blob/images/可視化.png" alt="packet-visualization">
 
-パケットの検索
+## パケットの検索
+パケットキャプチャは膨大なデータを伴います．パケットの検索機能は，必要なデータを抽出する際に必要不可欠となるものです．
+
+文字列検索により，パケットデータを容易に抽出することができます．
 
 <img src="https://github.com/Gitomoking/pcap-qt/blob/images/packet-search.png" alt="packet-search">
 
-パケットのフィルタリング
+## パケットのフィルタリング
+用途が決まっているパケットキャプチャにおいては，必要なデータを持つパケットだけを取得したい場合がほとんどです．フィルタリング機能を使えば，パケットキャプチャの段階から取得するパケットデータを制限することができます．
+
+libpcap ではフィルタ式というものを作成してフィルタリングを行いますが，pcap-qt ではフィルタ式の文法を覚える必要はなく，テキストやチェックボックスなどのUIを通して簡単にフィルタリングを行うことができます．
 
 <img src="https://github.com/Gitomoking/pcap-qt/blob/images/フィルタ式確認画面.png" alt="filtering-1">
-
 <img src="https://github.com/Gitomoking/pcap-qt/blob/images/%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E8%A8%AD%E5%AE%9A%E7%94%BB%E9%9D%A2%E3%83%95%E3%82%9A%E3%83%AD%E3%83%88%E3%82%B3%E3%83%AB%E3%82%BF%E3%83%95%E3%82%99.png" alt="filtering-2">
-
 <img src="https://github.com/Gitomoking/pcap-qt/blob/images/%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E8%A8%AD%E5%AE%9A%E7%94%BB%E9%9D%A2%E3%83%9B%E3%82%9A%E3%83%BC%E3%83%88%E7%95%AA%E5%8F%B7%E3%82%BF%E3%83%95%E3%82%99.png" alt="filtering-3">
-
 <img src="https://github.com/Gitomoking/pcap-qt/blob/images/%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E8%A8%AD%E5%AE%9A%E7%94%BB%E9%9D%A2%E3%83%9B%E3%82%B9%E3%83%88%E3%82%BF%E3%83%95%E3%82%99.png" alt="filtering-4">
 
-ネットワーク統計
+## ネットワーク統計
+パケットデータを一つ一つ見るのは大変なことです．統計機能を用いると，取得したパケットデータを集計してグラフ化できます．
+
+ネットワークのトラフィック量の統計，利用プロトコルの統計，通信量の多い通信の抽出を行うことができます．
 
 <img src="https://github.com/Gitomoking/pcap-qt/blob/images/packet-traffic.png" alt="traffic">
 
@@ -71,7 +78,8 @@ pcap-qt で解析可能なプロトコルは以下の通りです：
 
 <img src="https://github.com/Gitomoking/pcap-qt/blob/images/%E3%83%95%E3%82%9A%E3%83%AD%E3%83%88%E3%82%B3%E3%83%AB%E7%B5%B1%E8%A8%88%E7%94%BB%E9%9D%A2.png" alt="protocol">
 
-ログ
+## ログ
+過去のパケットデータを閲覧したいとき，ログ機能を用いると便利です．pcap-qt は，30日分のデータを暗号化して保存できます（500MBの容量が必要）．
 
 <img src="https://github.com/Gitomoking/pcap-qt/blob/images/log.png" alt="log">
 
@@ -90,12 +98,20 @@ pcap-qt で解析可能なプロトコルは以下の通りです：
  |---pseudo-pcap---pseudo_capture pseudo_main.cpp etc. 
 
 # インストール
+## 動作環境
+pcap-qt は，以下の環境で動作を確認済みです．
+
+- CentOS7 64bit
+- Libpcap 1.5.3
+- Qt 5.7, 5.8
+- MariaDB 10.1.3 (データベース容量500MB)
+
 ## 準備
 アプリケーションをインストールするためには，先に以下のライブラリをインストールしてください．
 
-- libpcap および libpcap-devel　（v1.5.3で動作確認済み）． 
-- Qt : QtCharts, QtSQL含む　（v5.7/5.8で動作確認済み）． 
-- MariaDB-10.1.3 以降 
+- libpcap および libpcap-devel　（v1.5.3で動作確認済み）
+- Qt : QtCharts, QtSQL含む　（v5.7/5.8で動作確認済み）
+- MariaDB-10.1.3 以降 (500MB利用)
 
 ただし，MariaDB は，ログ機能を利用する場合（ネットワーク統計を保存する場合）のみ必要となります．
 
