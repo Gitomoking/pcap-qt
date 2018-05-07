@@ -116,7 +116,7 @@ pcap-qt ディレクトリの dbaccess.cpp ソースファイルを編集して�
 
 DBAccess クラスのコンストラクタが次のようになっていると思います．
 
-```cpp:dbaccess.cpp
+```cpp
 myDB = QSqlDatabase::addDatabase("QMYSQL"); // MySQLに接続
 myDB.setHostName("127.0.0.1");  // ホスト名（ローカルホスト）
 myDB.setDatabaseName("pcap"); // データベース名
@@ -172,14 +172,14 @@ $ make
 pcap-qt の mainwindow.cpp を編集します．  
 449行あたりの次のコード
 
-```startPacketCapture()関数内変更前
+```cpp
 process = new QProcess(this);   // プロセスの生成
 process->start(pcap-capture, arguments); // 外部プログラムの実行
 ```
 
 を以下のように変更してください．process->start() に渡す第1引数を変更します．
 
-```startPacketCapture()関数内変更後
+```cpp
 process = new QProcess(this);   // プロセスの生成
 process->start(pseudo_capture, arguments); // 外部プログラムの実行
 ```
