@@ -3,7 +3,7 @@ pcap-qt は，Linux 上で動作する，ネットワークパケットをリア
 
 <img src="https://github.com/Gitomoking/pcap-qt/blob/images/IMG_9628.png" alt="pcap-qt logo" title="pcap-qt">
 
-**本アプリケーションは，大分高専情報工学科の専門科目「工学実験V/VI」で行なったシステム開発の際に製作したものです．**
+**本アプリケーションは，大分高専情報工学科の専門科目「工学実験VI」（半年）で行なったシステム開発の際に製作したものです．**
 
 pcap-qt の主な機能は以下の通りです：
 
