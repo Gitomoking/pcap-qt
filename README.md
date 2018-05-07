@@ -19,20 +19,21 @@ Pcap-qt の主な機能は以下の通りです：
 - pseudo-pcap : パケットキャプチャのデモンストレーションのためのプログラム
 
 本ソフトウェアを利用する際，pcap ディレクトリと pcap-qt ディレクトリは，同じ親ディレクトリを持つようにしてください．例えば，次のようなディレクトリ構成になります．
-親ディレクトリ
- |---pcap-qt---pcap-qt mainwindow.cpp etc.
- |---pcap---pcap-device pcap-capture device_main.cpp pcap_main.cpp etc.
- |---pseudo-pcap---pseudo_capture pseudo_main.cpp etc.
+
+親ディレクトリ 
+ |---pcap-qt---pcap-qt mainwindow.cpp etc. 
+ |---pcap---pcap-device pcap-capture device_main.cpp pcap_main.cpp etc. 
+ |---pseudo-pcap---pseudo_capture pseudo_main.cpp etc. 
 
 # インストール
 ## 準備
 アプリケーションをインストールするためには，先に以下のライブラリをインストールしてください．
 
-a) libpcap および libpcap-devel　（v1.5.3で動作確認済み）．
-b) Qt : QtCharts, QtSQL含む　（v5.7/5.8で動作確認済み）．
-c) MariaDB-10.1.3 以降
+a) libpcap および libpcap-devel　（v1.5.3で動作確認済み）． 
+b) Qt : QtCharts, QtSQL含む　（v5.7/5.8で動作確認済み）． 
+c) MariaDB-10.1.3 以降 
 
-ただし，c)は，ログ機能を利用する（ネットワーク統計を保存する）場合のみです．
+ただし，c)は，ログ機能を利用する場合（ネットワーク統計を保存する場合）のみです．
 
 ## データベースのセットアップ（ログ機能を利用する場合）
 データベースの暗号化については，付録「データベースのセットアップ.pdf」を参照してください．
@@ -45,7 +46,9 @@ c) MariaDB-10.1.3 以降
 
 それぞれのテーブルの作成コマンドを以下に示します．
 
-```sql:LogDataテーブルの作成
+(LogDataテーブルの作成)
+
+```sql
 CREATE TABLE LogData(
 	LogID INT PRIMARY KEY AUTO_INCREMENT,
 	DateTime DATETIME,
@@ -54,7 +57,9 @@ CREATE TABLE LogData(
 ) ENGINE=InnoDB ENCRYPTED=YES ENCRYPTION_KEY_ID=1;
 ```
 
-```sql:NodeSetテーブルの作成
+(NodeSetテーブルの作成)
+
+```sql
 CREATE TABLE NodeSet(
 	LogID INT,
 	NodeSetID INT PRIMARY KEY AUTO_INCREMENT,
@@ -67,7 +72,9 @@ CREATE TABLE NodeSet(
 ) ENGINE=InnoDB ENCRYPTED=YES ENCRYPTION_KEY_ID=1;
 ```
 
-```sql:Trafficテーブルの作成
+(Trafficテーブルの作成)
+
+```sql
 CREATE TABLE Traffic(
 	LogID INT,
 	NodeSetID INT,
@@ -79,7 +86,9 @@ CREATE TABLE Traffic(
 ) ENGINE=InnoDB ENCRYPTED=YES ENCRYPTION_KEY_ID=1;
 ```
 
-```sql:Protocolテーブルの作成
+(Protocolテーブルの作成)
+
+```sql
 CREATE TABLE Protocol(
 	LogID INT PRIMARY KEY,
 	ARP INT DEFAULT 0,
@@ -101,12 +110,12 @@ CREATE TABLE Protocol(
 ) ENGINE=InnoDB ENCRYPTED=YES ENCRYPTION_KEY_ID=1;
 ```
 
-次に，アプリケーションからデータベースに接続できるようプログラムを編集します．
+次に，アプリケーションからデータベースに接続できるようプログラムを編集します． 
 pcap-qt ディレクトリの dbaccess.cpp ソースファイルを編集してください．
 
 DBAccess クラスのコンストラクタが次のようになっていると思います．
 
-```cpp:dbaccess.cppのコンストラクタ
+```cpp:dbaccess.cpp
 myDB = QSqlDatabase::addDatabase("QMYSQL"); // MySQLに接続
 myDB.setHostName("127.0.0.1");  // ホスト名（ローカルホスト）
 myDB.setDatabaseName("pcap"); // データベース名
