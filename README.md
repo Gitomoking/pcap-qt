@@ -1,9 +1,11 @@
-# pcap-qtとは 
+# pcap-qtとは
 pcap-qt は，Linux 上で動作する，ネットワークパケットをリアルタイムで可視化できるネットワークアナライザアプリケーションです．pcap-qt を使うことによって，ユーザーはネットワーク機器から取得したネットワークパケットのデータをウィンドウ上で閲覧できるだけでなく，Qt を使って実装されたアニメーション機能によって可視化されたネットワークパケットの流れを見ることができます．
 
 <img src="https://github.com/Gitomoking/pcap-qt/blob/images/IMG_9628.png" alt="pcap-qt logo" title="pcap-qt">
 
 **本アプリケーションは，大分高専情報工学科の専門科目「工学実験VI」（半年）で行なったシステム開発の際に製作したものです．**
+
+機能紹介のプレゼンは[こちら](https://github.com/Gitomoking/pcap-qt/blob/master/introduction%20to%20pcap-qt.pdf)から
 
 pcap-qt の主な機能は以下の通りです：
 
@@ -97,7 +99,7 @@ libpcap ではフィルタ式というものを作成してフィルタリング
 親ディレクトリ<br />
  |---pcap-qt---pcap-qt mainwindow.cpp etc.<br />
  |---pcap---pcap-device pcap-capture device_main.cpp pcap_main.cpp etc. <br />
- |---pseudo-pcap---pseudo_capture pseudo_main.cpp etc. 
+ |---pseudo-pcap---pseudo_capture pseudo_main.cpp etc.
 
 # インストール
 ## 動作環境
@@ -195,7 +197,7 @@ CREATE TABLE Protocol(
 ) ENGINE=InnoDB ENCRYPTED=YES ENCRYPTION_KEY_ID=1;
 ```
 
-次に，アプリケーションからデータベースに接続できるようプログラムを編集します． 
+次に，アプリケーションからデータベースに接続できるようプログラムを編集します．
 pcap-qt ディレクトリの dbaccess.cpp ソースファイルを編集してください．
 
 DBAccess クラスのコンストラクタが次のようになっていると思います．
@@ -253,7 +255,7 @@ $ make
 
 次に，pcap-qt 内で使用するキャプチャプログラムを pseudo_capture に変更します．
 
-pcap-qt の mainwindow.cpp を編集します．  
+pcap-qt の mainwindow.cpp を編集します．
 449行あたりの次のコード
 
 ```cpp
